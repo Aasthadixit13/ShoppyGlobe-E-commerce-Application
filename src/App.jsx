@@ -167,7 +167,8 @@ import React, { Suspense } from "react";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Header from "./components/Header";
+// import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 
 // Lazy load ALL pages → Code Splitting = 10 marks
 const Home = React.lazy(() => import("./pages/Home"));
@@ -195,7 +196,8 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <>
-        <Header />
+        {/* <Header /> */}
+        <Navbar />
         <Suspense fallback={<LazyFallback />}>
           <Home />
         </Suspense>
@@ -206,7 +208,8 @@ const router = createBrowserRouter([
     path: "/product/:id",
     element: (
       <>
-        <Header />
+        {/* <Header /> */}
+          <Navbar />
         <Suspense fallback={<LazyFallback />}>
           <ProductDetailPage />
         </Suspense>
@@ -217,7 +220,8 @@ const router = createBrowserRouter([
     path: "/cart",
     element: (
       <>
-        <Header />
+        {/* <Header /> */}
+          <Navbar />
         <Suspense fallback={<LazyFallback />}>
           <CartPage />
         </Suspense>
@@ -228,7 +232,8 @@ const router = createBrowserRouter([
     path: "/checkout",
     element: (
       <>
-        <Header />
+        {/* <Header /> */}
+          <Navbar />
         <Suspense fallback={<LazyFallback />}>
           <Checkout />
         </Suspense>
@@ -239,7 +244,8 @@ const router = createBrowserRouter([
     path: "*",
     element: (
       <>
-        <Header />
+        {/* <Header /> */}
+          <Navbar />
         <Suspense fallback={<LazyFallback />}>
           <NotFound />
         </Suspense>
