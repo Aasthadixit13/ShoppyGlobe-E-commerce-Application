@@ -27,12 +27,18 @@ const ProductDetailPage = () => {
     <div style={{ maxWidth: '900px', margin: '2rem auto', padding: '2rem', textAlign: 'center' }}>
       <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{product.title}</h1>
       
-      <img
+      {/* <img
         src={product.thumbnail}
         alt={product.title}
         style={{ maxWidth: '400px', borderRadius: '16px', boxShadow: '0 8px 20px rgba(0,0,0,0.15)' }}
-      />
+      /> */}
 
+<img
+  src={product.thumbnail}
+  alt={product.title}
+  loading="lazy"   // ← THIS LINE ADDED – Image lazy loading
+  style={{ maxWidth: '400px', borderRadius: '16px', boxShadow: '0 8px 20px rgba(0,0,0,0.15)' }}
+/>
       <div style={{ margin: '2rem 0' }}>
         <h2 style={{ color: '#2e8b57', fontSize: '2rem' }}>₹{product.price}</h2>
         <p style={{ fontSize: '1.1rem', color: '#555', margin: '1.5rem 0', lineHeight: '1.6' }}>

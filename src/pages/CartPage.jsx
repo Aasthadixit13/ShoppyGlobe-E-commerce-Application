@@ -116,6 +116,7 @@ const ProductList = ({ products }) => {
           <img
             src={product.thumbnail}
             alt={product.title}
+            loading="lazy"  // ← ONLY THIS LINE ADDED – LAZY LOADING ENABLED
             style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius: "8px" }}
             onClick={() => navigate(`/product/${product.id}`)}
           />
