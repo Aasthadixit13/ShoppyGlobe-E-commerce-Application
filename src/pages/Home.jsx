@@ -4,7 +4,7 @@
 import React, { useEffect } from "react";
 import ProductList from "../components/ProductList";
 import SearchBar from "../components/SearchBar";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../store/productsSlice";
 import { selectFilteredProducts } from "../store/selectors";
 import useFetchProducts from "../hooks/useFetchProducts";  // ← ADD THIS

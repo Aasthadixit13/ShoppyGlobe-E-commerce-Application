@@ -3,7 +3,7 @@
 
 // src/App.jsx
 import React, { Suspense } from "react";
-import { Provider } from "react-redux";
+// import { Provider } from "react-redux";
 import { store } from "./store";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import Header from "./components/Header";
