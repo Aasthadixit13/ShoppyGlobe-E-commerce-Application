@@ -3,15 +3,27 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../store/cartSlice';
-import useFetchProduct from '../hooks/useFetchProduct'; // You'll create this or reuse logic
+// import useFetchProduct from '../hooks/useFetchProduct';
 
 const ProductDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { product, loading, error } = useFetchProduct(id); // Custom hook (we'll make it next)
+  // const { product, loading, error } = useFetchProduct(id); 
+  
+// ↓↓↓ TEMPORARY working version 
+  const [product, setProduct] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
 
+  React.useEffect(() => {
+    fetch(`https://dummyjson.com/products/${id}`)
+      .then(res => res.ok ? res.json() : Promise.reject('Product not found'))
+      .then(data => { setProduct(data); setLoading(false); })
+      .catch(err => { setError(err); setLoading(false); });
+  }, [id]);
+  // ↑↑↑ END temporary version ↑↑↑
   const handleAddToCart = () => {
     if (product) {
       dispatch(addToCart(product));

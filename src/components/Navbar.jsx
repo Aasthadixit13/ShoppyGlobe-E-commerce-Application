@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectCartTotalItems } from '../store/selectors';
 import { Link } from 'react-router-dom';
+// import '../styles/Navbar.css';
 
 const Navbar = () => {
   const cartItemsCount = useSelector(selectCartTotalItems);
