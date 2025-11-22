@@ -4,7 +4,8 @@
 // src/App.jsx
 import React, { Suspense } from "react";
 // import { Provider } from "react-redux";
-import { store } from "./store";
+// import { store } from "./store";
+import store from './store/store.js'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // import Header from "./components/Header";
 import Navbar from "./components/Navbar";
