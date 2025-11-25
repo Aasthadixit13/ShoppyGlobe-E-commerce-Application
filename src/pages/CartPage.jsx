@@ -2,7 +2,7 @@
 
 // src/pages/CartPage.jsx
 import React from "react";
-// import { useSelector, useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, updateQuantity } from "../store/cartSlice";
 import { selectCartItems, selectCartTotalPrice, selectCartTotalItems } from "../store/selectors";
 import { Link } from "react-router-dom";
