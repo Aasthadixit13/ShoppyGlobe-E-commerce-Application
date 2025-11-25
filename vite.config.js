@@ -20,10 +20,19 @@
 // });
 // vite.config.js   (put this file in your project root – same level as package.json)
 
+// import { defineConfig } from 'vite'
+// import react from '@vitejs/plugin-react'
+
+// export default defineConfig({
+//   plugins: [react()],
+//   base: './'   //  Vercel white screen 
+// })
+
+// vite.config.js
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: './'   //  Vercel white screen 
+  base: '/'          // ← CHANGE TO '/' (this is the correct one for Vercel + React Router)
 })
