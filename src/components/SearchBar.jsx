@@ -1,5 +1,5 @@
 
-// src/components/SearchBar.jsx
+
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { setSearchTerm } from '../store/productsSlice';
@@ -12,21 +12,21 @@ const SearchBar = () => {
   };
 
   return (
-    <div style={{ margin: '1.5rem 0', textAlign: 'center' }}>
+    <div style={{ margin: '1.5rem 0', textAlign: 'center'}}>
       <input
         type="text"
-        placeholder="Search products by name, description or category..."
+        placeholder="Search products..."
         onChange={handleSearch}
-        style={{
-          padding: '14px 20px',
-          width: '100%',
-          maxWidth: '600px',
-          fontSize: '1.1rem',
-          borderRadius: '50px',
-          border: '2px solid #ddd',
-          outline: 'none',
-          boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-        }}
+        
+       style={{
+ 
+  border: '1px solid #ddd',
+  padding: '8px 14px',
+  borderRadius: '10px',
+  cursor: 'pointer',
+  color: '#fff'   
+}}
+
       />
     </div>
   );

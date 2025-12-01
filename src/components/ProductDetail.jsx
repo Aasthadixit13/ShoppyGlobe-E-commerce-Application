@@ -73,7 +73,7 @@ function ProductDetail({ cart, setCart }) {
       <button
         onClick={addToCart}
         style={{
-          background: "orange",
+          background: "#c39555",
           color: "white",
           padding: "15px 30px",
           fontSize: "1.2rem",

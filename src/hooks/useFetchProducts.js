@@ -1,4 +1,4 @@
-// src/hooks/useFetchProducts.js
+
 import { useState, useEffect } from 'react';
 
 function useFetchProducts() {

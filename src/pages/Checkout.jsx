@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 function Checkout({ cart, setCart }) {
   const navigate = useNavigate();
 
-  // Keep your form states (now we use name in success message)
+  
   const [name, setName] = useState("");
   const [orderPlaced, setOrderPlaced] = useState(false);
 
@@ -21,7 +21,7 @@ function Checkout({ cart, setCart }) {
     setTimeout(() => navigate("/"), 2000);
   };
 
-  // Success screen — now shows the name user typed
+  
   if (orderPlaced) {
     return (
       <div style={{ textAlign: "center", padding: "100px", fontSize: "2rem", color: "green" }}>
@@ -36,7 +36,7 @@ function Checkout({ cart, setCart }) {
     <div style={{ maxWidth: "600px", margin: "2rem auto", padding: "2rem", border: "1px solid #ccc", borderRadius: "10px" }}>
       <h2 style={{ textAlign: "center" }}>Checkout</h2>
       <form onSubmit={placeOrder}>
-        {/* Only added value + onChange for name — rest same as your code */}
+        
         <input
           type="text"
           placeholder="Full Name"

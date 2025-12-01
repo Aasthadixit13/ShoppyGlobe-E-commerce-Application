@@ -1,104 +1,79 @@
 
-
-
-// src/App.jsx
-import React, { Suspense } from "react";
+import React, { Suspense } from "react";           
 import { Provider } from "react-redux";
-// import { store } from "./store";
-import store from './store/store.js'
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+import store from "./store/store.js";
 
-// Lazy load ALL pages → Code Splitting = 10 marks
+
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+} from "react-router-dom";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
+
 const Home = React.lazy(() => import("./pages/Home"));
 const ProductDetailPage = React.lazy(() => import("./pages/ProductDetailPage"));
 const CartPage = React.lazy(() => import("./pages/CartPage"));
 const Checkout = React.lazy(() => import("./pages/Checkout"));
+const About = React.lazy(() => import("./pages/About"));
+const Faqs = React.lazy(() => import("./pages/Faqs"));
+const Contact = React.lazy(() => import("./pages/Contact"));
 const NotFound = React.lazy(() => import("./components/NotFound"));
 
-// Loading fallback component
+
 const LazyFallback = () => (
-  <div style={{
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "80vh",
-    fontSize: "1.5rem",
-    color: "#555"
-  }}>
+  
+  <div
+    style={{
+      padding: "100px",
+      textAlign: "center",
+      fontSize: "1.8rem",
+      color: "#666",
+    }}
+  >
     Loading...
   </div>
 );
 
+
+const Layout = () => (
+  <>
+    <Navbar />
+    <main >
+      <Suspense fallback={<LazyFallback />}>
+        <Outlet />               
+      </Suspense>
+    </main>
+    <Footer />
+  </>
+);
+
+
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: (
-      <>
-        {/* <Header /> */}
-        <Navbar />
-        <Suspense fallback={<LazyFallback />}>
-          <Home />
-        </Suspense>
-      </>
-    ),
-  },
-  {
-    path: "/product/:id",
-    element: (
-      <>
-        {/* <Header /> */}
-          <Navbar />
-        <Suspense fallback={<LazyFallback />}>
-          <ProductDetailPage />
-        </Suspense>
-      </>
-    ),
-  },
-  {
-    path: "/cart",
-    element: (
-      <>
-        {/* <Header /> */}
-          <Navbar />
-        <Suspense fallback={<LazyFallback />}>
-          <CartPage />
-        </Suspense>
-      </>
-    ),
-  },
-  {
-    path: "/checkout",
-    element: (
-      <>
-        {/* <Header /> */}
-          <Navbar />
-        <Suspense fallback={<LazyFallback />}>
-          <Checkout />
-        </Suspense>
-      </>
-    ),
-  },
-  {
-    path: "*",
-    element: (
-      <>
-        {/* <Header /> */}
-          <Navbar />
-        <Suspense fallback={<LazyFallback />}>
-          <NotFound />
-        </Suspense>
-      </>
-    ),
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/product/:id", element: <ProductDetailPage /> },
+      { path: "/cart", element: <CartPage /> },
+      { path: "/checkout", element: <Checkout /> },
+      { path: "/about", element: <About /> },
+      { path: "/faqs", element: <Faqs /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "*", element: <NotFound /> },
+    ],
   },
 ]);
 
 function App() {
   return (
-    // <Provider store={store}>
+    <Provider store={store}>
       <RouterProvider router={router} />
-    // </Provider>
+    </Provider>
   );
 }
 

@@ -23,7 +23,7 @@
 }
 
 .cart-item button {
-  background: #ff5722;
+  background: white !important;
   color: #fff;
   padding: 6px 12px;
   border-radius: 50px;

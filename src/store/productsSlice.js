@@ -1,11 +1,11 @@
-// src/store/productsSlice.js
+
 import { createSlice } from '@reduxjs/toolkit';
 
 const productsSlice = createSlice({
   name: 'products',
   initialState: {
-    allProducts: [], // Original list from API
-    searchTerm: '', // Search input value
+    allProducts: [],
+    searchTerm: '', 
   },
   reducers: {
     setProducts(state, action) {
@@ -17,7 +17,7 @@ const productsSlice = createSlice({
   },
 });
 
-// Selector to get filtered products
+
 export const selectFilteredProducts = (state) => {
   const { allProducts, searchTerm } = state.products;
   if (!searchTerm.trim()) return allProducts;

@@ -1,7 +1,7 @@
-// src/store/selectors.js
+
 import { createSelector } from '@reduxjs/toolkit';
 
-// Cart Selectors
+
 export const selectCartItems = (state) => state.cart.items;
 
 export const selectCartTotalItems = createSelector([selectCartItems], (items) =>
@@ -14,11 +14,10 @@ export const selectCartTotalPrice = createSelector([selectCartItems], (items) =>
     .toFixed(2)
 );
 
-// Products Selectors (re-export from productsSlice + extra ones)
 export const selectAllProducts = (state) => state.products.allProducts;
 export const selectSearchTerm = (state) => state.products.searchTerm;
 
-// Filtered products (best performance with memoization)
+
 export const selectFilteredProducts = createSelector(
   [selectAllProducts, selectSearchTerm],
   (allProducts, searchTerm) => {
@@ -34,7 +33,6 @@ export const selectFilteredProducts = createSelector(
   }
 );
 
-// Extra useful selector: Check if cart is empty
 export const selectIsCartEmpty = createSelector(
   [selectCartItems],
   (items) => items.length === 0

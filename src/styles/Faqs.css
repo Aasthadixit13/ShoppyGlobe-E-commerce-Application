@@ -1,0 +1,56 @@
+
+.faq-accordion details {
+  background: #fff;
+  overflow: hidden;
+}
+
+.faq-accordion summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.5rem;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.faq-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+
+.faq-accordion summary::after {
+  content: '+';
+  position: absolute;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-accordion details[open] summary::after {
+  content: '−';
+}
+
+
+.faq-answer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
+  animation: sweep 0.4s ease-in-out;
+}
+
+@keyframes sweep {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.faq-question:hover {
+  background-color: #f1f1f1;
+}
