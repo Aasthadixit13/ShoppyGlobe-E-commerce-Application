@@ -2,8 +2,7 @@
 
 A complete, responsive, and production-ready e-commerce web application built with **Vite + React 18 + Redux Toolkit** as a major assignment project. Users can browse real products, search instantly, add items to cart, view details, and complete a dummy checkout flow.
 
-**Live Demo** → https://shoppyglobe-yourname.netlify.app  
-**GitHub** → https://github.com/yourusername/shoppyglobe
+
 
 ## Features Implemented
 
