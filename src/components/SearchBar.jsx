@@ -24,7 +24,7 @@ const SearchBar = () => {
   padding: '8px 14px',
   borderRadius: '10px',
   cursor: 'pointer',
-  color: '#fff'   
+  // color: '#fff'   
 }}
 
       />
